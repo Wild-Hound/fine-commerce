@@ -8,3 +8,8 @@
   display: grid;
   grid-template-columns: $temp1 $temp2;
 }
+
+@mixin flexfix() {
+  display: flex;
+  align-items: center;
+}
