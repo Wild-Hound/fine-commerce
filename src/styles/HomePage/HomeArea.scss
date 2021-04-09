@@ -1,0 +1,7 @@
+@import "./ProductCard/ProductCard.scss";
+@import "../Mixins/Mixins.scss";
+
+.ProductsArea {
+  @include generalCollectionSection(center);
+  padding: 50px 0;
+}

@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{createContext,useState,useEffect} from 'react'
+import './App.scss';
+import HomeArea from './components/HomePage/HomeArea';
+import fakeData from './fakeData/fakeData.json'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import ProductArea from './components/ProductPage/ProductArea';
 
+export const GlobalContext = createContext()
 function App() {
+  const [products,setProducts] = useState([])
+  useEffect(()=>{
+        setProducts(fakeData)
+    },[])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <GlobalContext.Provider value={{products,setProducts}}>
+          <Switch>
+            <Route exact path="/">
+              <HomeArea></HomeArea>
+            </Route>
+            <Route path="/product/:id">
+              <ProductArea></ProductArea>
+            </Route>
+          </Switch>
+        </GlobalContext.Provider>
+      </Router>
     </div>
   );
 }

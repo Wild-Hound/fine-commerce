@@ -1,0 +1,49 @@
+@import "../../Mixins/Mixins.scss";
+.productCard {
+  max-width: 300px;
+  border-radius: 5px;
+  text-align: start;
+  transition: all 0.35s;
+  border: 1px solid rgba(206, 206, 206, 0.657);
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 8px 8px rgba(226, 226, 226, 0.678);
+    transform: scale(1.025);
+  }
+
+  .productImage {
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .productHeader,
+  .productBody {
+    padding: 0 25px 0px 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+
+  .productHeader {
+    @include generalCollectionSection(space-between, nowrap);
+    align-items: center;
+    .productName {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    .productPrice {
+      margin: 20px 0;
+      color: tomato;
+      font-size: 18px;
+    }
+  }
+
+  .productFooter {
+    padding: 15px;
+  }
+}

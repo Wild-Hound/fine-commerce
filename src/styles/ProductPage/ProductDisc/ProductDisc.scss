@@ -1,0 +1,25 @@
+@import "../../Mixins/Mixins.scss";
+
+.discBody {
+  @include grid2L(60%, 30%);
+  grid-gap: 40px;
+  justify-content: center;
+  align-items: center;
+  min-height: fit-content;
+
+  .discImage {
+    width: 100%;
+  }
+  > div {
+    height: 100%;
+    position: relative;
+    .discMeta > div {
+      display: flex;
+      gap: 25px;
+    }
+    .disc {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

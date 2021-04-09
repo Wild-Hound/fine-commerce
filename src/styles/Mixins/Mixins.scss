@@ -1,0 +1,10 @@
+@mixin generalCollectionSection($alignment, $wrap: wrap) {
+  display: flex;
+  flex-wrap: $wrap;
+  gap: 25px;
+  justify-content: $alignment;
+}
+@mixin grid2L($temp1: 50%, $temp2: 50%) {
+  display: grid;
+  grid-template-columns: $temp1 $temp2;
+}
