@@ -1,3 +1,3 @@
 ## Next Tasks
 
-<li>Implement Buy Button Logic</li>
+<li>Fix selected items bug</li>

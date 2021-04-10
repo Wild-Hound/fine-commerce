@@ -5,10 +5,11 @@ import ProductDisc from './ProductDisc/ProductDisc'
 
 function ProductArea() {
 
-    const {products} = useContext(GlobalContext)
+    const {products,cartList, setCartList} = useContext(GlobalContext)
     const [product, setProduct] = useState({})
+    const [isSelected,setIsSelected] = useState(false)
     const {id} = useParams()
-    const {image,name,price,disc} = product
+
 
     useEffect(()=>{
         products.forEach(product =>{
@@ -17,14 +18,24 @@ function ProductArea() {
             }
         })
     },[])
+    
+    useEffect(()=>{
+        cartList?.forEach((cart)=>{
+            cart.id == product.id? setIsSelected(true) : setIsSelected(false)
+        })
+    },[cartList])
+
+    const addToCartAction = (e,product) =>{
+        isSelected?console.log("bypass"):setCartList([...cartList, product])
+    }
 
     return (
         <div className='productArea'>
             <ProductDisc 
-            img={image}
-            name={name}
-            price={price}
-            disc={disc} />
+            product = {product}
+            addToCart={addToCartAction}
+            btnText={isSelected?"Selected":"Add to cart"}
+            />
             <div></div>
         </div>
     )

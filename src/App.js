@@ -9,9 +9,12 @@ import {
   Link
 } from "react-router-dom";
 import ProductArea from './components/ProductPage/ProductArea';
+import MainNav from './components/AppNav/MainNav';
 
 export const GlobalContext = createContext()
 function App() {
+
+  const [cartList, setCartList] = useState([])
   const [products,setProducts] = useState([])
   useEffect(()=>{
         setProducts(fakeData)
@@ -20,7 +23,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <GlobalContext.Provider value={{products,setProducts}}>
+        <GlobalContext.Provider value={{products,setProducts,cartList, setCartList}}>
+          <MainNav/>
           <Switch>
             <Route exact path="/">
               <HomeArea></HomeArea>
