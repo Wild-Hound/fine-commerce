@@ -2,7 +2,11 @@ import React,{useState} from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
 import { Link,useHistory } from 'react-router-dom'
 import 'antd/dist/antd.css'
-import CreateAccount from './CreateAccount';
+import CreateAccount from '../CreateAccount/CreateAccount';
+import GoogleButton from 'react-google-button'
+import GithubButton from 'react-github-login-button'
+
+
 
 function Login({setIsAuth}) {
 
@@ -81,11 +85,24 @@ function Login({setIsAuth}) {
                             Submit
                         </Button>
                     </Form.Item>
+                    <hr/>
+                    <div className='instBtnArea'>
+                        <GoogleButton
+                            onClick={() => { console.log('Google button clicked') }}
+                            className='w-100'
+                        />
+                        <GithubButton
+                            onClick={() => { console.log('Github button clicked') }}
+                            className='w-100'
+                        />
+                    </div> 
             </Form>
+            {/* its not visible on ui because its a modal depanted on isModalVisible state */}
                 <CreateAccount 
                 isModalVisible={isModalVisible} 
                 setIsModalVisible={setIsModalVisible}
                 />
+                
         </>
     )
 }

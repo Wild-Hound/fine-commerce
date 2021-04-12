@@ -1,6 +1,8 @@
 import React,{useContext} from 'react'
 import { GlobalContext } from '../../App';
-import Login from './Login';
+import Login from './Login/Login';
+
+
 
 
 function LoginArea() {
@@ -13,6 +15,7 @@ function LoginArea() {
             <div className='loginBox'>
                 <Login setIsAuth={setIsAuth}/>
             </div>
+            
         </div>
     )
 }
