@@ -1,16 +1,24 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import {Link} from "react-router-dom";
+import {useHistory,Link} from "react-router-dom";
+import { GlobalContext } from '../../App';
 
 
 function MainNav() {
 
+    const {isAuth} = useContext(GlobalContext)
     const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />
+    const history = useHistory()
+
+    //this function is used for navigation of the appbar buttons
+    function pushHistory(e,whereTO){
+        history.push(`/${whereTO}`)
+    }
 
     return (
         <div className='NavRoot'>
@@ -22,8 +30,11 @@ function MainNav() {
                     >Fine Commerce</Link>
                 </Typography>
                 <div className="navControlsCon">
-                    <Button id="cartBtn">{cartIcon}</Button>
-                    <Button id='LoginBtn'>Login</Button>
+                    <Button id="cartBtn" onClick={(event)=>pushHistory(event,"checkout")}>{cartIcon}</Button>
+                    <Button id='LoginBtn' onClick={(event)=>pushHistory(event,"login")}>{
+                        //this is to change login text after user is authenticated
+                        isAuth?"User Logged In": "Login"
+                    }</Button>
                 </div>
                 </Toolbar>
             </AppBar>

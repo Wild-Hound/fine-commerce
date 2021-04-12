@@ -2,6 +2,7 @@ import React, {useContext,useState,useEffect} from 'react'
 import { useParams } from "react-router-dom"
 import {GlobalContext} from '../../App'
 import ProductDisc from './ProductDisc/ProductDisc'
+import RelatedProducts from './RelatedProducts/RelatedProducts'
 
 function ProductArea() {
 
@@ -36,7 +37,10 @@ function ProductArea() {
             addToCart={addToCartAction}
             btnText={isSelected?"Selected":"Add to cart"}
             />
-            <div></div>
+            <RelatedProducts
+            products={products}
+            product={product}
+            />
         </div>
     )
 }

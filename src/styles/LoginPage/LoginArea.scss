@@ -1,0 +1,19 @@
+@import "../Mixins/Mixins.scss";
+
+.loginBox {
+  @include gridCenter();
+  height: 90vh;
+}
+
+.loginForm {
+  min-width: 375px;
+  border: 1px solid #999;
+  padding: 50px 30px !important;
+  border-radius: 5px;
+}
+
+.createAccountText {
+  color: $category_color;
+  cursor: pointer;
+  margin-left: 5px;
+}
