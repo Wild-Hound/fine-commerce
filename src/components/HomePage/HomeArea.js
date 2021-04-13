@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext} from 'react'
+import React,{useContext} from 'react'
 import { GlobalContext } from '../../App'
 import ProductCard from './ProductCard/ProductCard'
 

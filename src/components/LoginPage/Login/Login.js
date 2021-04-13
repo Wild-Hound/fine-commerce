@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
-import { Link,useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import 'antd/dist/antd.css'
 import CreateAccount from '../CreateAccount/CreateAccount';
 import GoogleButton from 'react-google-button'
@@ -8,7 +8,8 @@ import GithubButton from 'react-github-login-button'
 
 
 
-function Login({setIsAuth}) {
+
+function Login({setIsAuth,googleSignin,githubSignIn}) {
 
     //this is used to control modal opening & closing
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -88,11 +89,11 @@ function Login({setIsAuth}) {
                     <hr/>
                     <div className='instBtnArea'>
                         <GoogleButton
-                            onClick={() => { console.log('Google button clicked') }}
+                            onClick={(event) => { googleSignin(event) }}
                             className='w-100'
                         />
                         <GithubButton
-                            onClick={() => { console.log('Github button clicked') }}
+                            onClick={(event) => { githubSignIn(event) }}
                             className='w-100'
                         />
                     </div> 

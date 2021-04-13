@@ -23,7 +23,7 @@ function ProductDisc(props) {
 
                     <p className='disc'>{disc}</p>
                     <div className='discQuantity'>
-                        <InputNumber min={1} max={10} defaultValue={1} onChange={onChange} />
+                        <InputNumber min={1} max={10} defaultValue={1} onChange={onChange} id='productQuantity' />
                         <button 
                         id='buyBtn'
                         onClick={(event)=> props.addToCart(event, props.product)}

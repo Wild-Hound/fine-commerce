@@ -9,18 +9,22 @@ import {useHistory,Link} from "react-router-dom";
 import { GlobalContext } from '../../App';
 import 'antd/dist/antd.css';
 import { Badge } from 'antd';
+import UserProfile from './UserProfile/UserProfile';
 
 
 function MainNav() {
 
-    const {isAuth,cartList} = useContext(GlobalContext)
+    const {isAuth,cartList,userRes} = useContext(GlobalContext)
     const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />
     const history = useHistory()
+    
 
     //this function is used for navigation of the appbar buttons
-    function pushHistory(e,whereTO){
+    const pushHistory = (whereTO) => {
         history.push(`/${whereTO}`)
     }
+
+    
 
     return (
         <div className='NavRoot'>
@@ -32,14 +36,15 @@ function MainNav() {
                     >Fine Commerce</Link>
                 </Typography>
                 <div className="navControlsCon">
-                    <Button id="cartBtn" onClick={(event)=>pushHistory(event,"checkout")}>
+                    <Button id="cartBtn" onClick={(event)=>{pushHistory('checkout')}}>
                         {cartIcon}
                         <Badge count={cartList.length}></Badge>
                     </Button>
-                    <Button id='LoginBtn' onClick={(event)=>pushHistory(event,"login")}>{
-                        //this is to change login text after user is authenticated
-                        isAuth?"User Logged In": "Login"
-                    }</Button>
+                    <UserProfile 
+                    pushHistory={pushHistory}
+                    isAuth={isAuth}
+                    userRes={userRes}
+                    />
                 </div>
                 </Toolbar>
             </AppBar>

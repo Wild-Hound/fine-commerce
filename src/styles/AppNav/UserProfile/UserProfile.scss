@@ -1,0 +1,38 @@
+
+#profilePopup{
+    min-width: fit-content !important;
+    position: fixed;
+    top: 65px;
+    right: 20px;
+}
+.UpList > li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.UpContainer{
+
+.UpHeader,.UpList > li{
+    padding: 5px;
+}
+.UpHeader{
+font-size: 20px;
+cursor: default;
+}
+.UpList {
+    padding: 0;
+    margin: 0;
+
+    > li{
+        cursor: pointer;
+        transition: all 0.35s;
+        list-style: none;
+        font-size: 18px;
+        font-weight: 400;
+        &:hover{
+        background-color: #eee;
+    }
+    }
+}
+
+}

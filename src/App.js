@@ -5,8 +5,7 @@ import fakeData from './fakeData/fakeData.json'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import ProductArea from './components/ProductPage/ProductArea';
 import MainNav from './components/AppNav/MainNav';
@@ -20,6 +19,7 @@ function App() {
   const [cartList, setCartList] = useState([])
   const [products,setProducts] = useState([])
   const [isAuth,setIsAuth] = useState(false)
+  const [userRes, setUserRes] = useState({userImg:null,userName:null,userEmail:null})
   useEffect(()=>{
         setProducts(fakeData)
     },[])
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <GlobalContext.Provider value={{isAuth,setIsAuth,products,setProducts,cartList, setCartList}}>
+        <GlobalContext.Provider value={{isAuth,setIsAuth,products,setProducts,cartList,setCartList,userRes, setUserRes}}>
           <Switch>
             <Route exact path="/">
               <MainNav/>

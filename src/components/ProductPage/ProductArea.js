@@ -15,7 +15,7 @@ function ProductArea() {
 
     useEffect(()=>{
         products.forEach(product =>{
-            if(product.id == id){
+            if(product.id === id){
                 setProduct(product)
             }
         })
@@ -25,7 +25,7 @@ function ProductArea() {
     useEffect(()=>{
         let itemFound = false
         cartList.forEach((cart)=>{
-            if(cart.id == product.id){
+            if(cart.id === product.id){
                 itemFound = true
             }
         })
@@ -34,7 +34,10 @@ function ProductArea() {
 
     // if isSelected is false this will update cartlist
     const addToCartAction = (e,product) =>{
-        isSelected?console.log("bypass"):setCartList([...cartList, product])
+        let x = product
+        x.quantity = document.getElementById('productQuantity').value
+        // productQuantity
+        isSelected?console.log("bypass"):setCartList([...cartList, x])
     }
 
     return (

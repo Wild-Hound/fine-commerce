@@ -8,7 +8,7 @@ function RelatedProducts({products,product}) {
     useEffect(()=>{
         let x = []
         products.forEach(pd => {
-                if(pd.category == product.category){
+                if(pd.category === product.category){
                     x.push(pd)
                 }
             })
