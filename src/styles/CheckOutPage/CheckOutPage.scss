@@ -1,0 +1,12 @@
+@import '../Mixins/Mixins.scss';
+@import './CartItems/CartItems.scss';
+
+.checkoutPageParentCon{
+    max-width: 750px;
+    margin: auto;
+    padding: 25px
+}
+
+.cartItemsCon{
+@include gridCenter();
+}

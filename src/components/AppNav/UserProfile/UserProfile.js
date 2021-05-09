@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import Button from '@material-ui/core/Button';
 import 'antd/dist/antd.css';
-import {Avatar,Popover,Divider} from 'antd';
+import {Avatar,Popover} from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 

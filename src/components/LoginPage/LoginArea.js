@@ -1,5 +1,6 @@
 import React,{useContext} from 'react'
 import { GlobalContext } from '../../App';
+import {useHistory} from 'react-router-dom'
 import Login from './Login/Login';
 import {firebaseConfig} from './Config'
 import firebase from "firebase/app"
@@ -9,6 +10,8 @@ function LoginArea() {
 
     //this is mainly used in login component 
     const {setIsAuth,setUserRes} = useContext(GlobalContext)
+    const history = useHistory()
+    
 
     !firebase.apps.length?firebase.initializeApp(firebaseConfig):firebase.app()
 
@@ -52,6 +55,7 @@ function LoginArea() {
         }
         setUserRes(x)
         setIsAuth(true)
+        history.push(history.location.state.from.pathname)
     }
 
     return (

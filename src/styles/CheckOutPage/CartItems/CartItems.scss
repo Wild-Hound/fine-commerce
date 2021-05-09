@@ -1,0 +1,35 @@
+@import "../../Mixins/_breakPoints.scss";
+.checkOutItem{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: cadetblue;
+    border-radius: 5px;
+    margin: 35px 0;
+    box-shadow: 5px 5px 10px #bbb;
+    @include media('<tablet'){
+        flex-direction: column;
+    }
+    .itemImg{
+        max-height: 125px;
+        @include media('<tablet'){
+            max-height: 300px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    > div{
+        align-self: flex-start;
+    }
+    >button{
+        border: none;
+        outline: none;
+        font-size: 1.25em;
+        font-weight: bold;
+        padding: 0.25em 1em;
+        background-color: #a6d6d6;
+        cursor: pointer;
+    }
+}

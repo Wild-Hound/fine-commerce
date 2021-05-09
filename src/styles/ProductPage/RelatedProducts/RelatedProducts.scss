@@ -1,6 +1,25 @@
+@import "../../Mixins/_breakPoints.scss";
+
+.relatedProductWrapper{
+@include media('<desktop'){
+    max-width: 500px;
+    margin: auto;
+  }
+  @include media('<tablet'){
+    max-width: 350px;
+    margin: auto;
+    padding: 0;
+    >div:nth-child(1){
+      >button{
+        display: none;
+      }
+    }
+  }
+}
 .relatedProduct {
   padding: 45px;
   background: #dbdaea;
+  
 }
 .relatedMeta {
   display: flex;

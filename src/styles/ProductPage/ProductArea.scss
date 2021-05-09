@@ -1,9 +1,13 @@
 @import "../Mixins/Mixins.scss";
 @import "./ProductDisc/ProductDisc.scss";
+@import "../Mixins/__breakPoints.scss";
 
 .productArea {
   @include grid2L(60%, 30%);
   min-height: 100vh;
   align-items: center;
   justify-content: space-around;
+  @include media("<desktop"){
+    grid-template-columns: 100%;
+  }
 }

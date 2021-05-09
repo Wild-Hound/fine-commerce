@@ -1,5 +1,6 @@
 @import "../../Mixins/Mixins.scss";
 @import "../../Mixins/_variables";
+@import "../../Mixins/_breakPoints.scss";
 
 .discBody {
   @include grid2L(45%, 45%);
@@ -9,6 +10,15 @@
   min-height: fit-content;
   background-color: #67697c;
   padding: 80px 0px;
+  @include media("<desktop"){
+    max-width: 550px;
+    grid-template-columns: 100%;
+    padding: 24px;
+    margin: 24px auto;
+  }
+  @include media("<tablet"){
+    max-width: 350px;
+  }
 
   .discImage {
     width: 100%;
@@ -25,6 +35,10 @@
       background-color: $sub_feild_bg;
       border-radius: 5px;
       max-height: 115px;
+      @include media("<tablet"){
+        min-height: fit-content;
+        box-sizing: content-box;
+      }
       .discTitle {
         margin-top: 0;
         font-weight: 500;
@@ -33,6 +47,10 @@
     .discMeta > div {
       display: flex;
       gap: 25px;
+      @include media("<tablet"){
+      flex-direction: column;
+      gap: 0;
+      }
       .discPrice {
         color: $price_color;
       }
@@ -71,6 +89,10 @@
           background-color: #78c4d4;
           transform: translateY(-5px);
           box-shadow: 3px 3px 10px rgba(192, 192, 192, 0.664);
+        }
+        @include media("<tablet"){
+        font-size: 16px;
+        padding: 0 5px;
         }
       }
     }
