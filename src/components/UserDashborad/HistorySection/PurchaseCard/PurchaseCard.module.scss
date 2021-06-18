@@ -1,0 +1,47 @@
+.cardWrapper {
+  border: 1px solid black;
+  border-radius: 10px;
+  max-width: fit-content;
+  padding: 1em 1.5em;
+  margin: 1em;
+  background-color: #57606f;
+  * {
+    color: white;
+  }
+  .itemListWrapper {
+    > h3 {
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      > span {
+        min-width: fit-content;
+        color: #a4b0be;
+      }
+      &::before,
+      &::after {
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color: #a4b0be;
+        margin: auto;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.itemMeta {
+  display: flex;
+  gap: 15px;
+  border: 1px solid white;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  p {
+    margin: 0;
+    font-weight: 500;
+    > span {
+      color: #1dd1a1;
+    }
+  }
+}
