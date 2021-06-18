@@ -3,6 +3,7 @@ import { GlobalContext } from "../../App";
 import CartItems from "./CartItems/CartItems";
 import "antd/dist/antd.css";
 import { Steps, Button, message } from "antd";
+import BillignForm from "./BillingForm/BillignForm";
 
 const { Step } = Steps;
 
@@ -10,6 +11,14 @@ function CheckOutArea() {
   const { cartList, setCartList } = useContext(GlobalContext);
   const [current, setCurrent] = useState(0);
   const [isDisabled, setIsDisabled] = useState(true);
+
+  function removeItem(e, item) {
+    // console.log(cartList);
+    // console.log(item);
+    let temp = cartList.filter((e) => e.id != item);
+    setCartList([...temp]);
+    // console.log(temp);
+  }
 
   useEffect(() => {
     cartList.length >= 1 ? setIsDisabled(false) : setIsDisabled(true);
@@ -20,13 +29,17 @@ function CheckOutArea() {
       title: "Cart",
       content: (
         <div className="cartItemsCon">
-          <CartItems cartList={cartList} setCartList={setCartList} />
+          <CartItems
+            cartList={cartList}
+            setCartList={setCartList}
+            removeAct={removeItem}
+          />
         </div>
       ),
     },
     {
       title: "Billing Details",
-      content: "Second-content",
+      content: <BillignForm />,
     },
     {
       title: "Payment",

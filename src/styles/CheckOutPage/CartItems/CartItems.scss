@@ -8,6 +8,7 @@
     border-radius: 5px;
     margin: 35px 0;
     box-shadow: 5px 5px 10px #bbb;
+    justify-content: space-around;
     @include media('<tablet'){
         flex-direction: column;
     }

@@ -1,6 +1,6 @@
 import React from "react";
 
-function CartItems({ cartList, setCartList }) {
+function CartItems({ cartList, setCartList, removeAct }) {
   return (
     <div>
       {cartList.length < 1 ? (
@@ -16,7 +16,13 @@ function CartItems({ cartList, setCartList }) {
                 <p className="itemCategory">Category: {item.category}</p>
                 <p className="itemQuantity">Quantity: {item.quantity}</p>
               </div>
-              <button>Close</button>
+              <button
+                onClick={(e) => {
+                  removeAct(e, item.id);
+                }}
+              >
+                Close
+              </button>
             </div>
           );
         })

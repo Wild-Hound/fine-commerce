@@ -2,12 +2,13 @@ import React, { createContext, useState, useEffect } from "react";
 import "./App.scss";
 import HomeArea from "./components/HomePage/HomeArea";
 import fakeData from "./fakeData/fakeData.json";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ProductArea from "./components/ProductPage/ProductArea";
 import MainNav from "./components/AppNav/MainNav";
 import CheckOutArea from "./components/CheckOutPage/CheckOutArea";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import LoginArea from "./components/LoginPage/LoginArea";
+import UserDashborad from "./components/UserDashborad/UserDashborad";
 
 export const GlobalContext = createContext();
 function App() {
@@ -25,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <GlobalContext.Provider
           value={{
             isAuth,
@@ -56,9 +57,13 @@ function App() {
               <MainNav />
               <LoginArea />
             </Route>
+            <Route path="/profile/:id">
+              <MainNav />
+              <UserDashborad />
+            </Route>
           </Switch>
         </GlobalContext.Provider>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
