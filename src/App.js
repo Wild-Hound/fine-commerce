@@ -57,10 +57,15 @@ function App() {
               <MainNav />
               <LoginArea />
             </Route>
-            <Route path="/profile/:id">
+            {/* <Route path="/profile/:id">
               <MainNav />
               <UserDashborad />
-            </Route>
+            </Route> */}
+            <ProtectedRoute
+              path="/profile/:id"
+              component={UserDashborad}
+              isAuth={isAuth}
+            />
           </Switch>
         </GlobalContext.Provider>
       </BrowserRouter>

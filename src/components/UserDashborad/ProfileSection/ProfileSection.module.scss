@@ -1,0 +1,61 @@
+.profileWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  .profileCard {
+    height: 600px;
+    width: 450px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #30336b;
+
+    * {
+      color: white;
+    }
+    .proImg {
+      > img {
+        display: block;
+        height: 150px;
+        width: 150px;
+        border-radius: 150px;
+        margin: 2em auto;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .meta {
+    text-align: start;
+    max-width: fit-content;
+    margin: auto;
+    > h2 {
+      margin: 0;
+      > span {
+        color: #1dd1a1 !important;
+      }
+    }
+  }
+  .btnWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
+    > button {
+      background-color: transparent;
+      padding: 0.5em 0.75em;
+      font-size: 1.5em;
+      font-weight: 500;
+      width: 90%;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 3px solid #fc427b;
+      color: #fc427b;
+      transition: all 0.35s;
+      &:hover {
+        background-color: #fc427b;
+        color: white;
+      }
+    }
+  }
+}

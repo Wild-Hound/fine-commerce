@@ -46,7 +46,7 @@ function UserProfile({ pushHistory, isAuth, userRes }) {
           isAuth
             ? null
             : (e) => {
-                pushHistory("login");
+                pushHistory("profile/user");
               }
         }
       >
