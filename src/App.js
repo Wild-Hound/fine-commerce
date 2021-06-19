@@ -21,7 +21,14 @@ function App() {
     userEmail: null,
   });
   useEffect(() => {
-    setProducts(fakeData);
+    fetch("http://localhost:5200/products", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
   }, []);
 
   return (

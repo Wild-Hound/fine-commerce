@@ -8,7 +8,7 @@ function CartItems({ cartList, setCartList, removeAct }) {
       ) : (
         cartList.map((item) => {
           return (
-            <div key={item.id} className="checkOutItem">
+            <div key={item._id} className="checkOutItem">
               <img src={item.image} className="itemImg" />
               <div>
                 <h2 className="itemHeader">{item.name}</h2>
@@ -18,7 +18,7 @@ function CartItems({ cartList, setCartList, removeAct }) {
               </div>
               <button
                 onClick={(e) => {
-                  removeAct(e, item.id);
+                  removeAct(e, item._id);
                 }}
               >
                 Close

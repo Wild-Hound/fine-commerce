@@ -15,7 +15,7 @@ function ProductArea() {
 
   useEffect(() => {
     products.forEach((product) => {
-      if (product.id === id) {
+      if (product._id === id) {
         setProduct(product);
       }
     });
@@ -29,7 +29,7 @@ function ProductArea() {
     cartList.forEach((cart) => {
       //button text is set to selected
       //it product id is found in cart list
-      if (cart.id === product.id) {
+      if (cart._id === product._id) {
         itemFound = true;
       }
     });

@@ -17,6 +17,16 @@ function ProfileSection() {
             <span>Email:</span> yasinkhan4008@gmail.com
           </h2>
         </div>
+        <div className={styles.adressDetails}>
+          <div className={styles.col}>
+            <p>Street Adress: N/A</p>
+            <p>Post Code: N/A</p>
+          </div>
+          <div className={styles.col}>
+            <p>Country: N/A</p>
+            <p>City: N/A</p>
+          </div>
+        </div>
         <div className={styles.btnWrapper}>
           <button>Log Out</button>
         </div>

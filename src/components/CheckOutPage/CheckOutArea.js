@@ -13,11 +13,8 @@ function CheckOutArea() {
   const [isDisabled, setIsDisabled] = useState(true);
 
   function removeItem(e, item) {
-    // console.log(cartList);
-    // console.log(item);
-    let temp = cartList.filter((e) => e.id != item);
+    let temp = cartList.filter((e) => e._id != item);
     setCartList([...temp]);
-    // console.log(temp);
   }
 
   useEffect(() => {
@@ -47,7 +44,37 @@ function CheckOutArea() {
     },
   ];
 
+  function handleForm() {
+    const getCountry = () => {
+      try {
+        return document.querySelector(".css-1uccc91-singleValue").innerText;
+      } catch (err) {
+        return undefined;
+      }
+    };
+
+    const fName = document.getElementById("fName").value;
+    const lName = document.getElementById("lName").value;
+    const street = document.getElementById("street").value;
+    const city = document.getElementById("city").value;
+    const country = getCountry();
+    const pCode = document.getElementById("pCode").value;
+
+    const infoWrapper = {
+      FirstName: fName,
+      LastName: lName,
+      Street: street,
+      City: city,
+      Country: country,
+      PostCode: pCode,
+    };
+
+    console.log(infoWrapper);
+  }
+
   const next = () => {
+    console.log(current);
+    current == 1 && handleForm();
     setCurrent(current + 1);
   };
 

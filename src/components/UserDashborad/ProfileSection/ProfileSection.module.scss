@@ -37,10 +37,19 @@
       }
     }
   }
+
+  .adressDetails {
+    padding: 2.5em 1.5em;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25em;
+    font-weight: 500;
+  }
+
   .btnWrapper {
     display: flex;
     justify-content: center;
-    margin-top: 50%;
+
     > button {
       background-color: transparent;
       padding: 0.5em 0.75em;

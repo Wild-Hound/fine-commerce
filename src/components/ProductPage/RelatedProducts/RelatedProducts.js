@@ -19,11 +19,11 @@ function RelatedProducts({ products, product, history }) {
       {relatedProducts?.map((rp) => {
         return (
           <div
-            key={rp.id}
+            key={rp._id}
             className="relatedProduct"
             onClick={() => {
-              console.log(`/product/${rp.id}`);
-              history.push(`/product/${rp.id}`);
+              console.log(`/product/${rp._id}`);
+              history.push(`/product/${rp._id}`);
             }}
           >
             <img src={rp.image} className="relatedImage" />

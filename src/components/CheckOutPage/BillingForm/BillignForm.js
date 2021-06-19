@@ -13,13 +13,13 @@ function BillignForm() {
     <div className={styles.formWrapper}>
       <h1>Billign Details</h1>
       <div className={styles.gropedInputs}>
-        <input type="text" placeholder="First Name" />
-        <input type="text" placeholder="Last Name" />
+        <input type="text" placeholder="First Name" id="fName" />
+        <input type="text" placeholder="Last Name" id="lName" />
       </div>
-      <input type="text" placeholder="Street Adress" />
-      <input type="text" placeholder="City" />
-      <Select options={options} placeholder="Country" />
-      <input type="text" placeholder="Post Code" />
+      <input type="text" placeholder="Street Adress" id="street" />
+      <input type="text" placeholder="City" id="city" />
+      <Select options={options} placeholder="Country" id="country" />
+      <input type="text" placeholder="Post Code" id="pCode" />
     </div>
   );
 }
