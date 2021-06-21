@@ -25,7 +25,13 @@ function UserProfile({ pushHistory, isAuth, userRes }) {
         >
           Profile
         </li>
-        <li>Admin</li>
+        <li
+          onClick={(e) => {
+            pushHistory("admin/accounts");
+          }}
+        >
+          Admin
+        </li>
         <li className="UpLogOut">Log Out</li>
       </ul>
     </div>

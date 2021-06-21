@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import "./App.scss";
 import HomeArea from "./components/HomePage/HomeArea";
-import fakeData from "./fakeData/fakeData.json";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ProductArea from "./components/ProductPage/ProductArea";
 import MainNav from "./components/AppNav/MainNav";
@@ -9,6 +8,8 @@ import CheckOutArea from "./components/CheckOutPage/CheckOutArea";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import LoginArea from "./components/LoginPage/LoginArea";
 import UserDashborad from "./components/UserDashborad/UserDashborad";
+import AdmidDashborad from "./components/AdminDashborad/AdmidDashborad";
+import AdminLogin from "./components/AdminLogin/AdminLogin";
 
 export const GlobalContext = createContext();
 function App() {
@@ -20,6 +21,9 @@ function App() {
     userName: null,
     userEmail: null,
   });
+  const [adminAuth, setAdminAuth] = useState(false);
+  const [adminEmail, setAdminEmail] = useState("");
+
   useEffect(() => {
     fetch("http://localhost:5200/products", {
       method: "GET",
@@ -44,6 +48,10 @@ function App() {
             setCartList,
             userRes,
             setUserRes,
+            adminAuth,
+            setAdminAuth,
+            adminEmail,
+            setAdminEmail,
           }}
         >
           <Switch>
@@ -64,14 +72,20 @@ function App() {
               <MainNav />
               <LoginArea />
             </Route>
-            {/* <Route path="/profile/:id">
+            <Route path="/admin_login">
               <MainNav />
-              <UserDashborad />
-            </Route> */}
+              <AdminLogin />
+            </Route>
             <ProtectedRoute
               path="/profile/:id"
               component={UserDashborad}
               isAuth={isAuth}
+            />
+            <ProtectedRoute
+              path="/admin/:id"
+              component={AdmidDashborad}
+              isAuth={adminAuth}
+              admin={true}
             />
           </Switch>
         </GlobalContext.Provider>
