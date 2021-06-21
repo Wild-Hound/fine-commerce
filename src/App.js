@@ -25,7 +25,7 @@ function App() {
   const [adminEmail, setAdminEmail] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5200/products", {
+    fetch("https://fine-commerce.herokuapp.com/products", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
