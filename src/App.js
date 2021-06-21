@@ -24,12 +24,6 @@ function App() {
   const [adminAuth, setAdminAuth] = useState(false);
   const [adminEmail, setAdminEmail] = useState("");
 
-  console.log(process.env.REACT_APP_FIREBASE_API_KEY);
-  console.log(process.env.REACT_APP_FIREBASE_APP_ID);
-  console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID);
-  console.log(process.env.REACT_APP_FIREBASE_SENDER_ID);
-  console.log(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
-
   useEffect(() => {
     fetch("https://fine-commerce.herokuapp.com/products", {
       method: "GET",
