@@ -1,0 +1,44 @@
+.wrapper {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  .sideBar {
+    height: 100%;
+    width: 300px;
+    position: sticky;
+    top: 0;
+    background-color: #2f3542;
+    .heading {
+      font-size: 2em;
+      color: #dfe4ea;
+      text-align: center;
+      max-width: fit-content;
+      margin: 1.5em auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      &::after {
+        content: "";
+        height: 3px;
+        width: 85px;
+        background-color: #a4b0be;
+        border-radius: 10px;
+      }
+    }
+    .links {
+      text-align: center;
+      padding: 2.5em 0;
+      > a {
+        display: block;
+        color: #a4b0be;
+        font-size: 1.5em;
+        font-weight: 500;
+        padding: 1em 0;
+        transition: all 0.35s;
+        &:hover {
+          background-color: #747d8c;
+          color: white;
+        }
+      }
+    }
+  }
+}
